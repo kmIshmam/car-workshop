@@ -32,3 +32,13 @@ Now, we will use a case story to show how it will work:
 Mahmud is a customer who wants to repair, paint and modify his car. Instead of going to the garage, he can easily view all the information of the garage shop provides; repairing, car painting, modifying parts and so on. Searching and selecting his desired services, he will be asked to fill up his form. After all of that, and invoice will be created.
 
 After all, the records and transactions will be stored in the database.
+<img width="820" height="495" alt="image" src="https://github.com/user-attachments/assets/0ee24712-519d-454b-84db-eb7987a07ad5" />
+<img width="940" height="579" alt="image" src="https://github.com/user-attachments/assets/4c49a89f-3710-48ad-a70b-d755bc063482" />
+<img width="940" height="607" alt="image" src="https://github.com/user-attachments/assets/f712b752-7741-460b-bed0-66bf8ab464e1" />
+<img width="940" height="542" alt="image" src="https://github.com/user-attachments/assets/a7e9f02f-d68e-466f-9d40-99dc7def724b" />
+<img width="940" height="569" alt="image" src="https://github.com/user-attachments/assets/f9134440-26c8-48ae-abf0-0867d81375f5" />
+
+<img width="940" height="587" alt="image" src="https://github.com/user-attachments/assets/03d7938a-7dad-4fa5-a2d5-339edaa67222" />
+
+
+
