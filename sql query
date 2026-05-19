@@ -1,0 +1,164 @@
+USE master;
+GO
+
+DROP DATABASE IF EXISTS cwmsystem;
+GO
+
+CREATE DATABASE cwmsystem;
+GO
+
+USE cwmsystem;
+GO
+
+-- ================= USERS =================
+
+CREATE TABLE Users
+(
+    UserId INT PRIMARY KEY IDENTITY(1,1),
+
+    Name VARCHAR(100) NOT NULL,
+
+    Email VARCHAR(100) UNIQUE NOT NULL,
+
+    Phone VARCHAR(20) NOT NULL,
+
+    Age INT NOT NULL,
+
+    Gender VARCHAR(20) NOT NULL,
+
+    Password VARCHAR(100) NOT NULL,
+
+    Role VARCHAR(20) NOT NULL
+);
+
+-- ================= CATEGORIES =================
+
+CREATE TABLE Categories
+(
+    CategoryId INT PRIMARY KEY IDENTITY(1,1),
+
+    CategoryName VARCHAR(100) NOT NULL
+);
+
+-- ================= SERVICES =================
+
+CREATE TABLE Services
+(
+    ServiceId INT PRIMARY KEY IDENTITY(1,1),
+
+    CategoryId INT FOREIGN KEY REFERENCES Categories(CategoryId),
+
+    ServiceName VARCHAR(100) NOT NULL,
+
+    VehicleType VARCHAR(50),
+
+    FuelType VARCHAR(50),
+
+    Price FLOAT NOT NULL
+);
+
+-- ================= ORDERS =================
+
+CREATE TABLE Orders
+(
+    OrderId INT PRIMARY KEY IDENTITY(1,1),
+
+    OrderDate DATETIME NOT NULL,
+
+    TotalAmount FLOAT NOT NULL,
+
+    PaymentMethod VARCHAR(50) NOT NULL
+);
+
+-- ================= ORDER DETAILS =================
+
+CREATE TABLE OrderDetails
+(
+    DetailId INT PRIMARY KEY IDENTITY(1,1),
+
+    OrderId INT FOREIGN KEY REFERENCES Orders(OrderId),
+
+    ServiceName VARCHAR(100),
+
+    Price FLOAT
+);
+
+-- ================= CATEGORY DATA =================
+
+INSERT INTO Categories (CategoryName)
+VALUES
+('Engine Service'),
+('Oil Change'),
+('Brake Service'),
+('Car Wash'),
+('Battery Service'),
+('AC Repair'),
+('Wheel Alignment'),
+('Painting'),
+('Tyre Service'),
+('Full Inspection');
+
+-- ================= SERVICE DATA =================
+
+INSERT INTO Services
+(CategoryId, ServiceName, VehicleType, FuelType, Price)
+
+VALUES
+
+(1, 'Engine Diagnostics', 'Car', 'Petrol', 2500),
+(1, 'Engine Repair', 'SUV', 'Diesel', 8000),
+
+(2, 'Synthetic Oil Change', 'Car', 'Petrol', 3000),
+(2, 'Regular Oil Change', 'Bike', 'Petrol', 1200),
+
+(3, 'Brake Pad Replacement', 'SUV', 'Diesel', 4500),
+(3, 'Brake Oil Service', 'Car', 'Petrol', 1800),
+
+(4, 'Full Body Wash', 'Car', 'Petrol', 700),
+(4, 'Premium Wash & Wax', 'SUV', 'Diesel', 1500),
+
+(5, 'Battery Checkup', 'Car', 'Hybrid', 500),
+(5, 'Battery Replacement', 'SUV', 'Diesel', 6500),
+
+(6, 'AC Gas Refill', 'Car', 'Petrol', 2200),
+(6, 'AC Full Repair', 'SUV', 'Diesel', 7000),
+
+(7, 'Wheel Alignment', 'Car', 'Petrol', 1800),
+(7, 'Wheel Balancing', 'Truck', 'Diesel', 2500),
+
+(8, 'Door Painting', 'Car', 'Petrol', 4000),
+(8, 'Full Body Painting', 'SUV', 'Diesel', 25000),
+
+(9, 'Tyre Replacement', 'Car', 'Petrol', 6000),
+(9, 'Tyre Puncture Repair', 'Bike', 'Petrol', 300),
+
+(10, 'Computerized Inspection', 'Car', 'Hybrid', 3500),
+(10, 'Full Vehicle Inspection', 'SUV', 'Diesel', 5000);
+
+-- ================= ADMIN ACCOUNT =================
+
+INSERT INTO Users
+(Name, Email, Phone, Age, Gender, Password, Role)
+
+VALUES
+(
+'admin',
+'admin@gmail.com',
+'01700000000',
+25,
+'Male',
+'admin123',
+'Admin'
+);
+CREATE TABLE Reviews
+(
+    ReviewId INT PRIMARY KEY IDENTITY(1,1),
+
+    CustomerName VARCHAR(100),
+
+    Rating INT,
+
+    Comment VARCHAR(500),
+
+    ReviewDate DATETIME
+);
